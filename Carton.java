@@ -1,53 +1,60 @@
-import java.util.Set; // Añadir esta importación
+import java.util.Set;
 import java.util.HashSet;
 import java.util.ArrayList;
 import java.util.Objects;
 
 public class Carton {
-    private Set<Integer> numerosCarton = new HashSet<>();
+    private ArrayList<Integer> numerosCarton = new ArrayList<>();
+    private ArrayList<Integer> numerosMarcados = new ArrayList<>();
     private String nombre;
 
     public Carton(String nombre) {
         this.nombre = nombre;
-        for (int i = 0; i < 15; i++) {
-            int numero;
-            do {
-                numero = (int) (Math.random() * 100) + 1;
-            } while (numerosCarton.contains(numero));
-            numerosCarton.add(numero);
+        Set<Integer> numerosUnicos = new HashSet<>();
+        while (numerosUnicos.size() < 15) {
+            int numero = (int) (Math.random() * 100) + 1;
+            numerosUnicos.add(numero);
         }
+        numerosCarton.addAll(numerosUnicos);
     }
 
     public String getNombre() {
         return nombre;
     }
 
-    public ArrayList<Integer> getNumeros() {
+    public ArrayList<Integer> getNumerosCarton() {
         return new ArrayList<>(numerosCarton); // Devuelve una copia para evitar modificación externa
     }
 
     public boolean marcar(int num) {
-        if (numerosCarton.contains(num)) {
-            numerosCarton.remove(Integer.valueOf(num)); // Elimina el número
+        if (numerosCarton.contains(num) && !numerosMarcados.contains(num)) {
+            numerosMarcados.add(num); // Añade el número marcado al array de números marcados
             return true;
         }
         return false;
     }
 
+    public ArrayList<Integer> getNumerosMarcados() {
+        return new ArrayList<>(numerosMarcados);
+    }
+
     public int faltaTerna() {
-        return Math.max(3 - (15 - numerosCarton.size()), 0); // Recalcular cuántos faltan para Terna
+        int numerosMarcadosCount = numerosMarcados.size();
+        return Math.max(3 - numerosMarcadosCount, 0);
     }
 
     public int faltaQuinta() {
-        return Math.max(5 - (15 - numerosCarton.size()), 0); // Recalcular cuántos faltan para Quinta
+        int numerosMarcadosCount = numerosMarcados.size();
+        return Math.max(5 - numerosMarcadosCount, 0);
     }
 
     public int faltaCartonLleno() {
-        return numerosCarton.size(); // Cuántos números faltan para el cartón lleno
+        int numerosMarcadosCount = numerosMarcados.size();
+        return numerosCarton.size() - numerosMarcadosCount;
     }
 
     public boolean alertaUltimoNumero() {
-        return numerosCarton.size() == 1;
+        return faltaCartonLleno() == 1;
     }
 
     @Override
@@ -56,5 +63,10 @@ public class Carton {
         if (obj == null || getClass() != obj.getClass()) return false;
         Carton carton = (Carton) obj;
         return Objects.equals(nombre, carton.nombre) && Objects.equals(numerosCarton, carton.numerosCarton);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nombre, numerosCarton);
     }
 }
