@@ -15,9 +15,9 @@ public class Main {
 
         // Simulación del juego
         System.out.println("");
-        System.out.println("-------------------------------------------------------------------");
-        System.out.println("|                       Bolillas salidas:                         |");
-        System.out.println("-------------------------------------------------------------------");
+        System.out.println("---------------------------------------------------------------------------------");
+        System.out.println("| Bolillas salidas:                                                             |");
+        System.out.println("---------------------------------------------------------------------------------");
 
         List<Integer> bolillasSalidas = new ArrayList<>();
 
@@ -32,13 +32,14 @@ public class Main {
         System.out.println("  "+bolillasSalidas);
         System.out.println("");
 
-        System.out.println("-------------------------------------------------------------------");
-        System.out.println("|                       Cartones Jugados:                         |");
-        System.out.println("-------------------------------------------------------------------");
+        System.out.println("---------------------------------------------------------------------------------");
+        System.out.println("| Cartones Jugados:                                                             |");
+        System.out.println("---------------------------------------------------------------------------------");
         System.out.println("");
 
         // Verificar y mostrar resultados para Carton 1
         System.out.println("* CARTON N°1 (de " + carton1.getNombre() + "): ");
+        System.out.println("");
         System.out.println("  -Numeros del Carton: "+carton1.getNumerosCarton());
         System.out.println("  -Numeros Marcados:   "+carton1.getNumerosMarcados());
         System.out.println("");
@@ -56,9 +57,12 @@ public class Main {
             System.out.println("   - Faltan " + carton1.faltaQuinta() + " números para la quinta.");
         }
 
-        // Verificar y mostrar resultados para Carton 2
         System.out.println("");
+        System.out.println("");
+        
+        // Verificar y mostrar resultados para Carton 2
         System.out.println("* CARTON N°2 (de " + carton2.getNombre() + "): ");
+        System.out.println("");
         System.out.println("  -Numeros del Carton: "+carton2.getNumerosCarton());
         System.out.println("  -Numeros Marcados:   "+carton2.getNumerosMarcados());
         System.out.println("");
@@ -76,9 +80,9 @@ public class Main {
         }
 
         System.out.println("");
-        System.out.println("-------------------------------------------------------------------");
-        System.out.println("|                           Fin del Juego                         |");
-        System.out.println("-------------------------------------------------------------------");
+        System.out.println("---------------------------------------------------------------------------------");
+        System.out.println("|                               Fin del Juego                                   |");
+        System.out.println("---------------------------------------------------------------------------------");
         System.out.println("");
     }
 
