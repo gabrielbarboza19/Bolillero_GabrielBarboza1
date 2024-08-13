@@ -20,4 +20,3 @@ public class Bolillero {
         return new ArrayList<>(bolillasSalidas); // Devuelve una copia de las bolillas salidas
     }
 }
-
