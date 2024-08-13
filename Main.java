@@ -39,8 +39,10 @@ public class Main {
 
         // Verificar y mostrar resultados para Carton 1
         System.out.println("* CARTON N°1 (de " + carton1.getNombre() + "): ");
-        System.out.println("  "+carton1.getNumeros());
+        System.out.println("  -Numeros del Carton: "+carton1.getNumerosCarton());
+        System.out.println("  -Numeros Marcados:   "+carton1.getNumerosMarcados());
         System.out.println("");
+
         System.out.println("   - Faltan " + carton1.faltaCartonLleno() + " números para llenar el carton.");
 
         if (carton1.faltaTerna() <= 0) {
@@ -57,7 +59,8 @@ public class Main {
         // Verificar y mostrar resultados para Carton 2
         System.out.println("");
         System.out.println("* CARTON N°2 (de " + carton2.getNombre() + "): ");
-        System.out.println("  "+carton2.getNumeros());
+        System.out.println("  -Numeros del Carton: "+carton2.getNumerosCarton());
+        System.out.println("  -Numeros Marcados:   "+carton2.getNumerosMarcados());
         System.out.println("");
         System.out.println("   - Faltan " + carton2.faltaCartonLleno() + " números para llenar el carton.");
         
@@ -78,6 +81,5 @@ public class Main {
         System.out.println("-------------------------------------------------------------------");
         System.out.println("");
     }
-
 
 }
